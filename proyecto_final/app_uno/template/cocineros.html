@@ -1,0 +1,110 @@
+
+{% extends "prueba.html"%}
+
+{% load static %}
+
+
+{% block contenido %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'inicio'%}"><img src="{% static 'app_uno/assets/img/navbar-logo.svg'%}" alt="..." /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'cocineros'%}">Cocineros</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'portafolio'%}">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'comidas'%}">Comidas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'recetas'%}">Recetas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'perfil'%}">Mi Perfil</a></li>
+  
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<section class="page-section bg-light" id="team">
+    <div class="container">
+        <div class="text-center">
+            <br>
+            <br>
+            <h2 class="section-heading text-uppercase">Nuestros cocineros</h2>
+            <h3 class="section-subheading text-muted">En esta sección te contaremos más sobre nuestros prestigiosos cocineros</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="{% static 'app_uno/assets/img/team/2.jpg' %}" alt="..." />
+                    <h4>Camila Johnson</h4>
+                    <p class="text-muted">Cocinera</p>
+                    <p class="text-muted">BIOGRAFÍA <br>
+                        Amante de la cocina desde los nueve años de edad, desarrolló un vínculo único con la comida. La fusión cultural entre sus dos abuelas (árabe y mexicana) plantaron en ella la pasión más grande de su vida. <br>
+                        Siempre supo que su destino era la cocina y todo lo que ésta implicaba como una industria formal, por ello cursó las carreras de Economía y Ciencias Políticas en el ITAM. Una rara combinación de números y comida que hoy en día se interpretan en su reconocido trabajo de la comida y bebida.</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="{% static 'app_uno/assets/img/team/1.jpg' %}" alt="..." />
+                    <h4>Nicola Gustev</h4>
+                    <p class="text-muted">Cocinero</p>
+                    <p class="text-muted">BIOGRAFÍA <br>
+                        Es un chef italiano radicado en España. Sus inicios como cocinero comenzaron en su país natal pero continuó formándose primero en Inglaterra y luego en España donde se consolidó como profesional gastronómico.
+                        En el País Vasco, consiguió llevar adelante, con gran éxito, un bar de pintxos de autor. Más tarde, se trasladó a Barcelona donde trabajó en diferentes empresas relacionadas con el mundo gastronómico. <br> Además dirigió durante dos años la cocina del Centro Riojano de Barcelona.
+                        Actualmente Nicola imparte cursos sobre cocina y técnicas culinarias en Barcelona. En cada plato que prepara, el chef apuesta por las recetas de concepto complejo pero de sencilla elaboración en donde pone a prueba toda su creatividad y destreza culinaria.</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-member">
+                    <img class="mx-auto rounded-circle" src="{% static 'app_uno/assets/img/team/3.jpg' %}" alt="..." />
+                    <h4>Larry Parker</h4>
+                    <p class="text-muted">Pastelero</p>
+                    <p class="text-muted">Es un cocinero profesional, con especialización en pastelería. Se ha dedicado a la investigación y al estudio de la gastronomía. <br>
+                        Además escribe artículos para importantes revistas. Es asesora culinaria: crea, analiza y ajusta cartas para restaurantes de renombre.</p>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'formulario' %}">Agregá un cocinero</a>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"></p></div>
+        </div>
+
+
+
+        <div>
+            <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'lista_cocineros' %}">Ver lista de cocineros</a>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"></p></div>
+        </div>
+    
+
+    </div>
+</section>
+
+        
+        
+
+
+
+
+
+
+
+
+{% endblock %}

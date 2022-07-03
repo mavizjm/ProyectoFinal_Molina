@@ -1,0 +1,359 @@
+
+{% extends "prueba.html"%}
+
+{% load static %}
+
+
+{% block contenido %}
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'inicio'%}"><img src="{% static 'app_uno/assets/img/navbar-logo.svg'%}" alt="..." /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'cocineros'%}">Cocineros</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'portafolio'%}">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'comidas'%}">Comidas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'recetas'%}">Recetas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'perfil'%}">Mi Perfil</a></li>
+                {% if not request.user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Ingresar</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <br>
+            <br>
+            <h2 class="section-heading text-uppercase">Nuestras comidas</h2>
+            <h3 class="section-subheading text-muted">Aquí podrás encontrar alguno de nuestros platos favoritos del mes y su origen.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 1-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/tiramisu.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Tiramisú</div>
+                        <div class="portfolio-caption-subheading text-muted">Descripción</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 2-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/hamburguesas.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Hamburguesa clásica</div>
+                        <div class="portfolio-caption-subheading text-muted">Descripción</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 3-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/ceviche.jpeg' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Ceviche</div>
+                        <div class="portfolio-caption-subheading text-muted">Descripción</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                <!-- Portfolio item 4-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/pannacotta.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Pannacotta</div>
+                        <div class="portfolio-caption-subheading text-muted">Descripción</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                <!-- Portfolio item 5-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/brioche.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Brioche con chocolate</div>
+                        <div class="portfolio-caption-subheading text-muted">Descripción</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <!-- Portfolio item 6-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/tzatziki.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Tzatziki</div>
+                        <div class="portfolio-caption-subheading text-muted">Descripción</div>
+                    </div>
+                </div>
+    
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{%static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Tiramisú</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_uno/assets/img/tiramisu.jpeg'%}" alt="..." />
+                            <p>Postre italiano creado en la década de 1970, a base de capas de pasta de bizcocho o de genovesa emborrachada de whisky y café, y capas de crema de mascarpone y huevos</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Origen:</strong>
+                                    Italia
+                                </li>
+                                <li>
+                                    <strong>Categoria:</strong>
+                                    Postre
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 2 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Hamburguesa Clásica</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_uno/assets/img/portfolio/hamburguesas.jpeg'%}" alt="..." />
+                            <p>Una hamburguesa es un sándwich hecho a base de carne molida o de origen vegetal, aglutinada en forma de filete cocinado a la parrilla o a la plancha, aunque también puede freírse u hornearse. Fuera del ámbito de habla hispana, es más común encontrar la denominación estadounidense burger, acortamiento de hamburger. <br>
+                                Se presenta en un pan ligero partido en dos que posee forma de óvalo. Suele estar acompañada de aros de cebolla, hojas de lechuga, alguna rodaja de tomate, láminas de encurtidos y papas fritas. Se suele aliñar con algún condimento, como puede ser la salsa de tomate (o kétchup), la mostaza, el relish, o la mayonesa, entre otros. <br>
+                                En el caso de que se ponga una lámina de queso procesado, se convierte en una hamburguesa con queso, denominada a veces hamburguesa amarilla.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Origen:</strong>
+                                    Alemania o Estados Unidos
+                                </li>
+                                <li>
+                                    <strong>Categoria:</strong>
+                                    Comida
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 3 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Ceviche de Filete de Sierra</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_uno/assets/img/portfolio/ceviche.jpeg'%}" alt="..." />
+                            <p>Es un plato preparado con pescado crudo marinado en jugo de limón y condimentado con otros ingredientes que varían según la región. En muchos países latinoamericanos, el ceviche forma parte de la cultura gastronómica, incluso en Perú es considerado patrimonio cultural</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Origen:</strong>
+                                    Perú
+                                </li>
+                                <li>
+                                    <strong>Categoria:</strong>
+                                    Comida
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 4 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Pannacotta de Turrón</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{%static 'app_uno/assets/img/portfolio/pannacotta.jpeg'%}" alt="..." />
+                            <p>La panna cotta es un postre típico de la región italiana del Piamonte, elaborado a partir de crema de leche, azúcar, queso crema y gelificantes, que se suele adornar con mermeladas de frutas rojas. <br>
+                                Recuerda al flan, pero su sabor es más lácteo y tiene una textura más parecida a la de la gelatina que a la del flan.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Origen:</strong>
+                                    Italia
+                                </li>
+                                <li>
+                                    <strong>Categoria:</strong>
+                                    Postre
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 5 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Brioche con chocolate</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_uno/assets/img/portfolio/brioche.jpeg'%}" alt="..." />
+                            <p>Brioche, pan de yema, bollo, bollo de leche o suizo, es un tipo de dulce de origen francés, hecho a base de una pasta con huevos, levadura, leche, mantequilla y azúcar. <br>
+                                La corteza se dora antes de hornearla obteniendo así su color característico, mientras que la miga es de un amarillo más pálido.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Origen:</strong>
+                                    Francia
+                                </li>
+                                <li>
+                                    <strong>Categoria:</strong>
+                                    Panadería
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 6 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{%static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Tzatziki</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_uno/assets/img/portfolio/tzatziki.jpeg'%}" alt="..." />
+                            <p>El tzatziki es una salsa característica de las cocinas griega y turca, muy empleada en los meze.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong>Origen:</strong>
+                                    Grecia
+                                </li>
+                                <li>
+                                    <strong>Categoria:</strong>
+                                    Salsa
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-primary btn-xl text-uppercase" href="{% url 'formulario_comidas' %}">Agregá una sugerencia de comida</a>
+</div>
+<div class="row">
+    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"></p></div>
+</div>
+
+{% endblock %}
+

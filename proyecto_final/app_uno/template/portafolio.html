@@ -1,0 +1,236 @@
+
+{% extends "prueba.html"%}
+
+{% load static %}
+
+
+{% block contenido %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'inicio'%}"><img src="{% static 'app_uno/assets/img/navbar-logo.svg'%}" alt="..." /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'cocineros'%}">Cocineros</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'portafolio'%}">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'comidas'%}">Comidas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'recetas'%}">Recetas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'perfil'%}">Mi Perfil</a></li>
+                {% if not request.user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Ingresar</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <br>
+            <br>
+            <h2 class="section-heading text-uppercase">Portafolio</h2>
+            <h3 class="section-subheading text-muted">Acá vas a encontrar una gran variedad de los platos que preparamos.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 1-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#BarbacoaEstiloSinaloa">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/Barbacoa.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Barbacoa Estilo Sinaloa</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 2-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#Alitas con Salsa BBQ">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/alitas.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Alitas con Salsa BBQ de Tomate de Árbol</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 3-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#Ramen">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/ramen.jpeg' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Ramen Mar y Montaña de Langostinos y Cerdo</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                <!-- Portfolio item 4-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#Crispy">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/crispy.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Crispy Pizza a los 6 Quesos</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                <!-- Portfolio item 5-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#Cheesecake">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/cheesecake.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Cheesecake sin Cocción</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <!-- Portfolio item 6-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#Teriyaki">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/teriyaki.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Teriyaki de Salmón</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center"></div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 1-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#Brochette">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/brochette.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Brochette (Kushiyaki) de Lomo, Mollejas y Vegetales</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 2-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#Camarones">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/camarones.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Pescado y Camarones Embarazados</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 3-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#Cabrito">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/cabrito.jpeg' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Cabrito Estilo Nuevo Leon</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                <!-- Portfolio item 4-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#Brownie">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/brownie.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Brownie Dos Azúcares</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                <!-- Portfolio item 5-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#TiramisúdeFresa">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/tiramisufresa.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Tiramisú de Fresa</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <!-- Portfolio item 6-->
+                <div class="portfolio-item">
+                    <a class="portfolio-item" data-bs-toggle="" href="#Cous">
+                        <div class="portfolio">
+                            <div class="portfolio"><i class=""></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/cous.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Cous Cous de Brócoli y Coliflor</div>
+                        <div class="portfolio-caption-subheading text-muted"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+
+
+{% endblock %}
+

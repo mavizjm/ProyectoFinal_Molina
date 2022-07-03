@@ -1,0 +1,82 @@
+
+{% extends "prueba.html" %}
+
+{% load static %}
+
+
+{% block contenido %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'inicio'%}"><img src="{% static 'app_uno/assets/img/navbar-logo.svg'%}" alt="..." /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+              <li class="nav-item"><a class="nav-link" href="{% url 'cocineros'%}">Cocineros</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'portafolio'%}">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'comidas'%}">Comidas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'recetas'%}">Recetas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'perfil'%}">Mi Perfil</a></li>
+                {% if not request.user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Ingresar</a></li>
+                {% endif %}
+              </ul>
+          </div>
+      </div>
+    </nav>
+
+<section class="page-section" id="about">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">ABOUT ME</h2>
+            <h3 class="section-subheading text-muted">Un poco de mi historia</h3>
+        </div>
+        <ul class="timeline">
+            <li>
+                <div class=""><img class="" src="" alt="" /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Quien soy</h4>
+                        <h4 class="subheading"></h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Bienvenido/a a mi primer página web, mi nombre es Maria Victoria Molina. Tengo 22 años, vivo en Capital Federal, Buenos Aires Argentina.</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class=""><img class="" src="" alt="" /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Un poco sobre mí</h4>
+                        <h4 class="subheading"></h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Soy estudiante de programación en Python y desarrollo web, estoy a punto de empezar la carrera de Técnica en desarrollo de software. Tengo una gran pasión por la computación y los videojuegos. Siempre me supero cada día en mis desafíos diarios. Me gusta leer, aprender, programar. Siempre predispuesta a ayudar al projimo y a mí misma. Empecé las carreas de Ingeniería en petroleo y medicina pero ambas las dejé para ahora empezar a dedicarme a lo que verdaderamente me gusta.</p></div>
+                </div>
+            </li>
+            <li>
+                <div class=""><img class="" src="" alt="" /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4>Descendencia</h4>
+                        <h4 class="subheading"></h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">Soy argentina, mi abuelo materno era italiano. Viví 9 años y medio en Italia (desde 2003 a 2012) y regresé a Argentina en el 2012 donde vivo actualmente.</p></div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-image">
+                    <h4>
+                        Muchas gracias
+                        <br />
+                        por conocerme
+                        <br />
+                        un poco más
+                    </h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,461 @@
+
+{% extends "prueba.html"%}
+
+{% load static %}
+
+
+{% block contenido %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'inicio'%}"><img src="{% static 'app_uno/assets/img/navbar-logo.svg'%}" alt="..." /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a class="nav-link" href="{% url 'cocineros'%}">Cocineros</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'portafolio'%}">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'comidas'%}">Comidas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'recetas'%}">Recetas</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'perfil'%}">Mi Perfil</a></li>
+                {% if not request.user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link" href="{% url 'login'%}">Ingresar</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<section class="page-section bg-light" id="portfolio">
+    <div class="container">
+        <div class="text-center">
+            <br>
+            <br>
+            <h2 class="section-heading text-uppercase">Recetas</h2>
+            <h3 class="section-subheading text-muted">En esta sección vas a poder encontrar las recetas de nuestros platos del mes para que puedas seguir los pasos desde la comodidad de tu casa.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 1-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/tiramisu.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Tiramisú</div>
+                        <div class="portfolio-caption-subheading text-muted">Receta y elaboración</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 2-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/hamburguesas.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Hamburguesa Clásica</div>
+                        <div class="portfolio-caption-subheading text-muted">Receta y elaboración</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+                <!-- Portfolio item 3-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/ceviche.jpeg' %}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Ceviche de Filete de Sierra</div>
+                        <div class="portfolio-caption-subheading text-muted">Receta y elaboración</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                <!-- Portfolio item 4-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/pannacotta.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Pannacotta de Turrón</div>
+                        <div class="portfolio-caption-subheading text-muted">Receta y elaboración</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                <!-- Portfolio item 5-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/brioche.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Brioche con Chocolate</div>
+                        <div class="portfolio-caption-subheading text-muted">Receta y elaboración</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <!-- Portfolio item 6-->
+                <div class="portfolio-item">
+                    <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                        </div>
+                        <img class="img-fluid" src="{% static 'app_uno/assets/img/portfolio/tzatziki.jpeg'%}" alt="..." />
+                    </a>
+                    <div class="portfolio-caption">
+                        <div class="portfolio-caption-heading">Tzatziki</div>
+                        <div class="portfolio-caption-subheading text-muted">Receta y elaboración</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{%static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Receta de Tiramisú</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_uno/assets/img/tiramisu.jpeg'%}" alt="..." />
+                            <p>INGREDIENTES <br>
+                                -Crema de leche 4 cucharadas medianas <br>
+                                -Esencia de vainilla c/n a gusto <br>
+                                -Queso crema 4 cucharadas medianas <br>
+                                -Café 1 Taza <br>
+                                -Vainillas 1 Paquete <br>
+                                -Azúcar 2 cucharadas medianas <br>
+                                <br>
+                                ELABORACIÓN <br>
+                                En un bowl agregar el queso crema con la crema de leche y agregar la esencia de vainilla con el azúcar. Mezclar hasta lograr una consistencia uniforme. Mojar las vainillas en el café caliente endulzado y colocar en un vaso/copa. Colocar capa de vainillas y capa de preparación hasta rellenar el vaso.
+                                Llevar a la heladera por unos minutos.</p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 2 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Receta de Hamburguesas Clásicas</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_uno/assets/img/portfolio/hamburguesas.jpeg'%}" alt="..." />
+                            <p>INGREDIENTES <br>
+                                <br>
+                                CARNE: <br>
+                                -Aceite de oliva c/n a gusto <br>
+                                -Cebolla picada 1/4 unidad <br>
+                                -Pimienta molida c/n a gusto <br>
+                                -Huevo 1 unidad <br>
+                                -Carne molida de Res 1 kg <br>
+                                -Perejil picado c/n a gusto <br>
+                                -Rebanadas de queso amarillo 3 Unidades <br>
+                                -Rebanadas de queso manchego 3 Unidades <br>
+                                -Sal 2 pz <br>
+                                <br>
+                                ELABORACIÓN <br>
+                                Para las papas, cortar gajos, agregar sal y paprika, freír hasta que estén cocidas, reservar. <br>
+                                Para la carne, mezclar carne molida, aceite, sal, perejil, cebolla, pimienta y huevo hasta que este todo bien integrado. Hacer bolitas de carne y aplanar aproximadamente del tamaño de los bollos. Cocinar en una sartén caliente con un poco de aceite hasta que estén bien cocidas por ambos lados. <br>
+                                Colocar una rebanada de queso sobre cada carne, retirar del fuego y dejar derretir el queso. Colocar una carne con queso dentro de cada bollo y acompañar con los toppings de su elección.
+                               
+                            <ul class="list-inline">
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 3 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Receta de Ceviche de Filete de Sierra</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_uno/assets/img/portfolio/ceviche.jpeg'%}" alt="..." />
+                            <p>INGREDIENTES <br>
+                                -Pimienta c/n a gusto <br>
+                                -Sal c/n a gusto <br>
+                                -Jugo de limón c/n a gusto <br>
+                                -Cebolla morada picada finamente 1/2 unidad <br>
+                                -Filete de sierra 1 kg <br>
+                                -Cilantro picado c/n a gusto <br>
+                                -Pepino 1 1/2 Unidades <br>
+                                -Zanahorias ralladas 2 Unidades <br>
+                                PARA ACOMPAÑAR: <br>
+                                -Salsa de botella c/n a gusto <br>
+                                -Tostadas c/n a gusto <br>
+                                <br>
+                                ELABORACIÓN <br>
+                                En un procesador de alimentos, moler el pescado hasta formar una pasta. Agregar jugo de limón, sal y pimienta, dejar curtir por unos minutos. <br>
+                                Pelar el pepino, retirar las semillas y cortar en cubos medianos colocar en un bowl. Agregar al mismo bowl zanahoria, cebolla, cilantro, sal, jugo de limón y mezclar hasta integrar. <br>
+                                Escurrir el pescado y agregar al bowl de las verduras, mezclar. Servir acompañado de tostadas y salsa de botella.
+
+
+                            </p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 4 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Receta de Pannacotta de Turrón</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{%static 'app_uno/assets/img/portfolio/pannacotta.jpeg'%}" alt="..." />
+                            <p>INGREDIENTES <br>
+                                <br>
+                                PALANQUETA: <br>
+                                -Azúcar refinada 3/4 ta <br>
+                                -Pepitas de calabaza 1 ta <br>
+                                -Sal 1 pz <br>
+                                PANNACOTTA: <br>
+                                -Turrón blando picado 50 Gramos <br>
+                                -Turrón blando 150 Gramos <br>
+                                -Rama de tomillo 1 unidad <br>
+                                -Agua para hidratar la grenetina c/n a gusto <br>
+                                -Azúcar 50 Gramos <br>
+                                -Crema para batir fría 1 ta <br>
+                                -Crema para batir a temp. ambiente 1 ta <br>
+                                -Grenetina 10 Gramos <br>
+                                -Leche 1 ta <br>
+                                <br>
+                                ELABORACIÓN <br>
+                                Para la palanqueta, en una sartén tostar pepitas de calabaza, retirar del fuego y reservar. En la misma sartén colocar azúcar hasta formar un caramelo, agregar las pepitas de calabaza y una pizca de sal, mezclar hasta integrar. <br>
+                                Colocar en una charola con papel encerador extender y dejar reposar, reservar. Para la pannacotta, en una olla pequeña colocar leche, tomillo y turrón, cocinar a fuego medio hasta fundir el turrón. <br>
+                                Hidratar la grenetina con suficiente de agua, reservar. Una vez fundido el turrón, retirar el tomillo, agregar la grenetina y mezclar. <br>
+                                Agregar la crema para batir a temperatura ambiente, mezclar hasta integrar. Batir la crema para batir fría junto con el azúcar hasta montar. <br> 
+                                Mezclar las 2 preparaciones anteriores de forma envolvente para obtener una crema ligera. <br>
+                                Para terminar, colocar trocitos de palanqueta en una copa, agregar un poco de crema cubriendo la palanqueta, terminar con turrón desmenuzado. Llevar a refrigeración por 1 hora.
+
+                            </p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 5 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{% static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Receta de Brioche con Chocolate</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_uno/assets/img/portfolio/brioche.jpeg'%}" alt="..." />
+                            <p>INGREDIENTES <br>
+                                <br>
+                                AMASIJO: <br>
+                                -Azúcar 120 Gramos <br>
+                                -Cacao amargo hidratado en leche 40 Gramos <br>
+                                -Chocolate cobertura 280 Gramos <br>
+                                -Harina 000 400 Gramos <br>
+                                -Harina 0000 600 Gramos <br>
+                                -Huevos 400 Gramos <br>
+                                -Leche 150 c.c. <br>
+                                -Levadura fresca 40 Gramos <br>
+                                -Mantequilla 180 Gramos <br>
+                                -Masa fermentada 250 Gramos <br>
+                                -Sal 20 Gramos <br>
+                                EMPASTE <br>
+                                Mantequilla 660 Gramos <br>
+                                TERMINADO <br>
+                                -Chips de chocolate c/n a gusto <br>
+                                -Cacao c/n a gusto <br>
+                                <br>
+                                ELABORACIÓN <br>
+                                Mezclar las harinas, la sal, el azúcar, levadura natural con la masa fermentada. Unir bien con la ayuda de una amasadora. Luego sumar la leche con los huevos, la mantequilla líquida y el cacao hidratado con la leche. <br>
+                                Por ultimo sumar el chocolate cobertura y dejar batir hasta que se integre bien. <br>
+                                Con la ayuda de harina en mesada desgasificar la masa y dejar reposar una noche. Envolver la masa de empaste con la masa brioche de chocolate. Dar 3 vueltas simples con la ayuda de un palo de amasar. Cortar con un cutter y armar las trenzas. Llenar los moldes con esta mezcla. <br>
+                                Sumar chips de chocolate, dejar leudar una o dos horas a temperatura ambiente y por ultimo llevar a horno 180° por 20-25 minutos. <br>
+                                Al salir del horno dejar enfriar y decorar con cacao en polvo.
+
+                            </p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Portfolio item 6 modal popup-->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-bs-dismiss="modal"><img src="{%static 'app_uno/assets/img/close-icon.svg'%}" alt="Close modal" /></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="modal-body">
+                            <!-- Project details-->
+                            <h2 class="text-uppercase">Receta de Tzatziki</h2>
+                            <p class="item-intro text-muted"></p>
+                            <img class="img-fluid d-block mx-auto" src="{% static 'app_uno/assets/img/portfolio/tzatziki.jpeg'%}" alt="..." />
+                            <p> INGREDIENTES <br>
+                                <br>
+                                -Ajo picado 1 Diente <br>
+                                -Eneldo 25 Gramos <br>
+                                -Jugo de limón 40 Gramos <br>
+                                -Labneh 250 Gramos <br>
+                                -Manzana verde 1 unidad <br>
+                                -Pepino japonés 1 unidad <br>
+                                -Pimienta negra 5 Gramos <br>
+                                -Queso de cabra cremoso 150 Gramos <br>
+                                -Sal entre fina c/n a gusto <br>
+                                <br>
+                                ELABORACIÓN <br>
+                                En un bowl mezclar labneh, queso de cabra cremoso, jugo de limón, ajo, sal y pimienta. Rallar pepino, manzana (todo con cascara) y agregar a la mezclar. <br>
+                                Añadir eneldo picado, integrar y servir.
+
+                            </p>
+                            <ul class="list-inline">
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                                <li>
+                                    <strong></strong>
+                                    
+                                </li>
+                            </ul>
+                            <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                <i class="fas fa-xmark me-1"></i>
+                                Cerrar ventana
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
